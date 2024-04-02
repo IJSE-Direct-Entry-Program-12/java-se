@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="322.0" prefWidth="560.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep12.ransomware.controller.MainViewController">
+   <children>
+      <AnchorPane layoutX="136.0" layoutY="24.0" style="-fx-border-color: lightgray;">
+         <children>
+            <ImageView fx:id="imgWebCam" fitHeight="224.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="133.0" layoutY="273.0" text="Now Go Fuck Yourself Moron!">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
