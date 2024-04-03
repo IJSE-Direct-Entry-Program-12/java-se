@@ -1,4 +1,4 @@
-package lk.ijse.dep12.image_explorer;
+package lk.ijse.dep12.editor;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,7 @@ public class AppInitializer extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MainView.fxml"))));
-        primaryStage.setTitle("Image Explorer");
+        primaryStage.setTitle("Untitled Document");
         primaryStage.show();
         primaryStage.centerOnScreen();
     }
