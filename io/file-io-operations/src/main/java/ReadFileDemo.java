@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class ReadFileDemo {
 
     public static void main(String[] args) throws IOException {
-        String filename = "among-trees.jpg";
+        String filename = "dep.txt";
         File file = new File(new File(System.getenv("HOME"), "Desktop"), filename);
 
         if (!file.exists()){
