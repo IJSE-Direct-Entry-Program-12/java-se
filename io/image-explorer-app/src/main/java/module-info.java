@@ -1,0 +1,2 @@
+module image.explorer.app {
+}
