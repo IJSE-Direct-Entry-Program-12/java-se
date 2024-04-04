@@ -1,0 +1,3 @@
+Hello! 
+Direct Entry Program 
+We can now write Strings 
