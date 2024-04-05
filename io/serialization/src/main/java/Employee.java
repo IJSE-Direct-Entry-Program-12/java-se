@@ -5,6 +5,12 @@ public class Employee implements Serializable {
     private String name;
     private String address;
 
+    private static final long serialVersionUID = 2880631122057679760L;
+
+    static{
+        System.out.println("Hello");
+    }
+
     public Employee(int id, String name, String address) {
         this.id = id;
         this.name = name;

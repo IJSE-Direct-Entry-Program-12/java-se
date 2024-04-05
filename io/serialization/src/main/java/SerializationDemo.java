@@ -13,6 +13,6 @@ public class SerializationDemo {
         byte[] byteArray = baos.toByteArray();
         System.out.println(Arrays.toString(byteArray));
 
-
+        oos.close();
     }
 }
