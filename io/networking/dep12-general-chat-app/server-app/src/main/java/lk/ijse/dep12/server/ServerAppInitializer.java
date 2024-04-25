@@ -17,7 +17,7 @@ public class ServerAppInitializer {
             while (true) {
                 Socket localSocket = serverSocket.accept();
                 CLIENT_LIST.add(localSocket);
-                broadcastMessage(localSocket, "Entered: " + localSocket.getRemoteSocketAddress());
+                broadcastMessage(localSocket, "Entered: " + localSocket.getRemoteSocketAddress() + "\n");
 
                 new Thread(() -> {
                     try {
@@ -26,7 +26,7 @@ public class ServerAppInitializer {
                         while (true) {
                             int read = is.read(byteBuffer);
                             if (read == -1) {
-                                broadcastMessage(localSocket, "Exited: " + localSocket.getRemoteSocketAddress());
+                                broadcastMessage(localSocket, "Exited: " + localSocket.getRemoteSocketAddress() + "\n");
                                 CLIENT_LIST.remove(localSocket);
                                 break;
                             }
@@ -45,7 +45,7 @@ public class ServerAppInitializer {
     private static void broadcastMessage(Socket client, String message) {
         new Thread(() -> {
             for (Socket socket : CLIENT_LIST) {
-                if (socket != client) continue;
+                if (socket == client) continue;
 
                 try {
                     if (socket.isConnected()) {
