@@ -50,7 +50,9 @@ public class LoginViewController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/MainView.fxml"));
             mainStage.setScene(new Scene(fxmlLoader.load()));
             MainViewController controller = fxmlLoader.getController();
+
             controller.initData(remoteSocket, nickName);
+
             mainStage.setTitle("DEP 12 General Chat App");
             mainStage.show();
             mainStage.centerOnScreen();

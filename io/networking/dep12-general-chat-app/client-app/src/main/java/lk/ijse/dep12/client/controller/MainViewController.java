@@ -22,6 +22,7 @@ public class MainViewController {
     public void initData(Socket remoteSocket, String nickName) {
         this.nickName = nickName;
         this.remoteSocket = remoteSocket;
+
         txtDisplay.appendText("You: Entered into the chat room \n");
 
         new Thread(() -> {
