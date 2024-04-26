@@ -1,4 +1,4 @@
-package lk.ijse.dep12.client1.to;
+package lk.ijse.dep12.shared.to;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

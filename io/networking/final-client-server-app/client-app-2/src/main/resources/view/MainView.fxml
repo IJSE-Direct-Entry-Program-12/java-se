@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep12.client2.controller.MainViewController">
+   <children>
+      <TableView fx:id="tblInventory" layoutX="29.0" layoutY="57.0" prefHeight="343.0" prefWidth="580.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="47.0">
+        <columns>
+          <TableColumn prefWidth="178.0" text="BARCODE" />
+          <TableColumn prefWidth="221.0" text="DESCRIPTION" />
+            <TableColumn prefWidth="49.0" text="QTY" />
+            <TableColumn prefWidth="103.0" text="PRICE" />
+        </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="14.0" text="INSPECT INVENTORY">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

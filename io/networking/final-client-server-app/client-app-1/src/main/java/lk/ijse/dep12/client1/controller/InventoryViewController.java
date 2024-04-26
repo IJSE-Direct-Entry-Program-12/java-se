@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import lk.ijse.dep12.client1.to.Item;
+import lk.ijse.dep12.shared.to.Item;
 
 import java.math.BigDecimal;
 
@@ -40,6 +40,8 @@ public class InventoryViewController {
                 txtPrice.setText(current.getPrice().toString());
             }
         });
+
+        btnDelete.setDisable(true);
     }
 
     public void btnDeleteOnAction(ActionEvent event) {
