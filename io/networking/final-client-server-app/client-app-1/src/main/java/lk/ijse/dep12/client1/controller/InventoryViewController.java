@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.dep12.client1.to.Item;
 
 import java.math.BigDecimal;
 
@@ -14,7 +15,7 @@ public class InventoryViewController {
     public Button btnDelete;
     public Button btnNewItem;
     public Button btnSave;
-    public TableView<?> tblInventory;
+    public TableView<Item> tblInventory;
     public TextField txtBarcode;
     public TextField txtDescription;
     public TextField txtPrice;
@@ -35,6 +36,7 @@ public class InventoryViewController {
             invalidField.selectAll();
             return;
         }
+
     }
 
     private TextField validateData(){
