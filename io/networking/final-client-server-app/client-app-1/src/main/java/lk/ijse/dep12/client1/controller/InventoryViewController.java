@@ -11,7 +11,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import lk.ijse.dep12.shared.to.Item;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.math.BigDecimal;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InventoryViewController {
 
@@ -23,8 +29,15 @@ public class InventoryViewController {
     public TextField txtDescription;
     public TextField txtPrice;
     public TextField txtQty;
+    private Socket remoteSocket;
+    private ObjectOutputStream oos;
 
-    public void initialize() {
+    public void initialize() throws IOException, ClassNotFoundException {
+
+        remoteSocket = new Socket("localhost", 5050);
+        oos = new ObjectOutputStream(remoteSocket.getOutputStream());
+        loadStock();
+
         tblInventory.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("barcode"));
         tblInventory.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("description"));
         tblInventory.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("qty"));
@@ -44,10 +57,17 @@ public class InventoryViewController {
         btnDelete.setDisable(true);
     }
 
-    public void btnDeleteOnAction(ActionEvent event) {
+    private void loadStock() throws IOException, ClassNotFoundException {
+        ObjectInputStream ois = new ObjectInputStream(remoteSocket.getInputStream());
+        List<Item> itemList = (List<Item>) ois.readObject();
+        tblInventory.getItems().addAll(itemList);
+    }
+
+    public void btnDeleteOnAction(ActionEvent event) throws IOException {
         Item selectedItem = tblInventory.getSelectionModel().getSelectedItem();
         ObservableList<Item> itemList = tblInventory.getItems();
         itemList.remove(selectedItem);
+        oos.writeObject(new ArrayList<>(itemList));
         if (itemList.isEmpty()) btnNewItem.fire();
     }
 
@@ -62,7 +82,7 @@ public class InventoryViewController {
         btnSave.setDisable(false);
     }
 
-    public void btnSaveOnAction(ActionEvent event) {
+    public void btnSaveOnAction(ActionEvent event) throws IOException {
         TextField invalidField;
         if ((invalidField = validateData()) != null) {
             invalidField.requestFocus();
@@ -88,6 +108,7 @@ public class InventoryViewController {
                 new BigDecimal(txtPrice.getText()));
         itemList.add(newItem);
 
+        oos.writeObject(new ArrayList<>(itemList));
         btnNewItem.fire();
     }
 
